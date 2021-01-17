@@ -15,10 +15,10 @@ import {
 } from '@material-ui/core';
 
 const styles = (theme) => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(2),
-    },
+    // root: {
+    //     margin: 0,
+    //     padding: theme.spacing(2),
+    // },
     closeButton: {
         position: 'absolute',
         right: theme.spacing(1),
@@ -41,23 +41,25 @@ class ImageGrid extends React.Component {
         //this.isFullscreen = useMediaQuery(useTheme().breakpoints.down('sm'));
         return(
             <div className={classes.root}>
-                <div className={classes.root}>
-                    <Grid container spacing={0}>
-                        <Grid item s={12} m={6}>
-                            <img src={featuredImage} />
-                        </Grid>
-                        <Grid item s={12} m={6}>
-                            <Grid container spacing={2}>
-                                {images.map((img, ind)=>
-                                    <Grid item s={12} m={6}>
-                                        <img src={img} />
-                                    </Grid>
-                                )}
+                <Grid container spacing={0}>
+                    {/*<Grid item s={12} m={6}>*/}
+                        <img src={featuredImage} />
+                    {/*</Grid>*/}
 
-                            </Grid>
+
+                    <Grid item s={12} m={6}>
+
+
+                        <Grid container spacing={2}>
+                            {images.map((img, ind)=>
+                                <Grid item s={12} m={6}>
+                                    <img src={img} />
+                                </Grid>
+                            )}
+
                         </Grid>
                     </Grid>
-                </div>
+                </Grid>
             </div>
         );
     }
