@@ -11,7 +11,9 @@ import {
     Button,
     Dialog,
     IconButton,
-    Grid
+    Grid,
+    GridList,
+    GridListTile
 } from '@material-ui/core';
 
 const styles = (theme) => ({
@@ -40,27 +42,18 @@ class ImageGrid extends React.Component {
         const { classes, images, featuredImage } = this.props;
         //this.isFullscreen = useMediaQuery(useTheme().breakpoints.down('sm'));
         return(
-            <div className={classes.root}>
-                <Grid container spacing={0}>
-                    {/*<Grid item s={12} m={6}>*/}
-                        <img src={featuredImage} />
-                    {/*</Grid>*/}
-
-
-                    <Grid item s={12} m={6}>
-
-
-                        <Grid container spacing={2}>
-                            {images.map((img, ind)=>
-                                <Grid item s={12} m={6}>
-                                    <img src={img} />
-                                </Grid>
-                            )}
-
-                        </Grid>
-                    </Grid>
+            <Grid container spacing={2}>
+                <Grid item md={6} sm={12}><img src={featuredImage} width="100%"/></Grid>
+                <Grid item md={6} sm={12}>
+                    <GridList cols={2}>
+                        {images.map((img, idx) => (
+                            <GridListTile key={img} cols={1}>
+                                <img src={img} />
+                            </GridListTile>
+                        ))}
+                    </GridList>
                 </Grid>
-            </div>
+            </Grid>
         );
     }
 }

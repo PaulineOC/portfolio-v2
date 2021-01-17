@@ -83,6 +83,7 @@ class ProjectDetail extends React.Component {
                 aria-labelledby="project-detail-dialog-title"
                 open={ProjectStore.isProjDetailOpen}
                 fullScreen={this.fullScreen}
+                maxWidth="lg"
             >
                 <Paper elevation={6}>
                     <DialogTitle id="project-detail-dialog-title" onClose={ProjectStore.closeProjectDetail}>
