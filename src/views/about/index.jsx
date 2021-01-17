@@ -9,7 +9,7 @@ import {withRouter} from 'react-router';
 // import MainImage from '../../data/images/Title.png';
 
 @observer
-class AboutMe extends React.Component {
+class About extends React.Component {
 
     constructor(props){
         super(props);
@@ -22,4 +22,4 @@ class AboutMe extends React.Component {
     }
 }
 
-export default withRouter(AboutMe);
+export default withRouter(About);
