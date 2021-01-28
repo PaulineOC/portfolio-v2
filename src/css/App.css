@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.circleOne{
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: red;
+}
+
+#navrow {
+	padding: 10px;
+	border-bottom: 1px #ccc dashed;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#header-name {
+	text-align: right;
+	font-weight: bolder;
+	font-size: 1.8em;
+}
+
+#nav-projects .nav-link, #nav-home .nav-link, #nav-contact .nav-link {
+	color: purple;
+}
+
+#nav-projects .nav-link.active, #nav-home .nav-link.active, #nav-contact .nav-link.active {
+	background-color: purple;
+	color: white;
+}
+
+.customBtn{
+	background-color: purple;
+	color: white;
+	padding: .5rem 1rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	border-radius: .3rem;
+	margin: 0 0.5em 0 0.5em
+}
+

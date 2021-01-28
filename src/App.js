@@ -1,40 +1,61 @@
-import React from "react";
-import {
-    HashRouter,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams,
-    BrowserRouter,
-} from 'react-router-dom';
+import React, { useState } from 'react';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Tab from 'react-bootstrap/Tab';
 
-import Home from './views/home';
-import About from './views/about';
-import Projects from './views/projects';
+import VennExample from './pages/vennExample';
+import Projects from './pages/projects';
+import ContactMe from './pages/contactMe';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/App.css';
 
-import routerHistory from './stores/history';
-
-export default function App() {
+function ControlledTabs() {
+    const [key, setKey] = useState('home');
     return (
-        <BrowserRouter basename="/portfolio-v2">
-            <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/work">Project</Link></li>
-                </ul>
-
-                <hr />
-                <Route path="/about" component={About} />
-                <Route path="/work" component={Projects} />
-                <Route exact path="/" component={Home} />
-            </div>
-        </BrowserRouter>
+        <Tab.Container defaultActiveKey="home">
+            <Row id="navrow">
+                <Col>
+                    <Nav variant="pills purple">
+                        <Nav.Item id="nav-home">
+                            <Nav.Link eventKey="home">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item id="nav-projects">
+                            <Nav.Link eventKey="projects">Projects</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item id="nav-contact">
+                            <Nav.Link eventKey="contact">Contact Me</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Col>
+                <Col id="header-name">
+                    Pauline Okuda Ceraulo
+                </Col>
+            </Row>
+            <Container>
+                <Tab.Content>
+                    <Tab.Pane eventKey="home">
+                        <VennExample/>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="projects">
+                        <Projects/>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="contact">
+                        <ContactMe/>
+                    </Tab.Pane>
+                </Tab.Content>
+            </Container>
+        </Tab.Container>
     );
-    // return (
-    //     <p>hi</p>
-    // );
 }
 
+
+function App() {
+    return (
+        <ControlledTabs/>
+    );
+}
+
+export default App;
